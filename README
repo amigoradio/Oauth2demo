@@ -1,0 +1,12 @@
+OAuthHelper为使用OAuth2的sina API的认证，获取用户ID，分享照片的例子代码
+主要参考了LROAuth2Client这个项目，以及人人网，开心网的demo    
+
+使用方法
+OAuthHelper *auth = [[OAuthHelper alloc] init];
+    [auth getAccessToken];
+
+对NSString和NSDictionary的扩展是从LROAuth2Client项目抄来的
+
+这个项目需要ASIHTTPRequest和TouchJSON
+
+现在只实现了sina weibo的部分功能，未来会在这个基础上做一个更完善的例子，也会加入腾讯，人人网，淘宝等
