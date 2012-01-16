@@ -18,7 +18,7 @@
 #define sinaAppKey @""//新浪申请的key
 #define sinaAppSecret @""//新浪申请的secret
 #define sinaAuthBaseURL @"https://api.weibo.com/oauth2/authorize"
-#define sinaCallBackURL @"http://www.zun1.com" //这个不重要，填个baidu都可以，sina要求必须有此项
+#define sinaCallBackURL @"" //这个改成自己的callbackURL，填个baidu都可以，sina要求必须有此项
 #define sinaAccessTokenURL @"https://api.weibo.com/oauth2/access_token"
 #define sinaUserIdURL @"https://api.weibo.com/2/account/get_uid.json"
 #define sinaUserInfoURL @"https://api.weibo.com/2/users/show.json"
