@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF9B0BF01486805400C3BA36 /* abc.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CF9B0BEF1486805400C3BA36 /* abc.jpg */; };
-		CFA39A6D148E4FD8006D6336 /* assign.png in Resources */ = {isa = PBXBuildFile; fileRef = CFA39A6C148E4FD8006D6336 /* assign.png */; };
 		CFB35F9C147A87B1002C536D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB35F9B147A87B1002C536D /* QuartzCore.framework */; };
 		CFB35F9E147A87B1002C536D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB35F9D147A87B1002C536D /* OpenGLES.framework */; };
 		CFB35FA0147A87B1002C536D /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB35F9F147A87B1002C536D /* OpenAL.framework */; };
@@ -129,13 +127,9 @@
 		CFB3610E147AAE45002C536D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB3610D147AAE45002C536D /* MobileCoreServices.framework */; };
 		CFB36110147AAE54002C536D /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB3610F147AAE54002C536D /* libz.1.2.5.dylib */; };
 		CFB36112147AAE6F002C536D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB36111147AAE6F002C536D /* SystemConfiguration.framework */; };
-		CFE20A34148FA7A000751E57 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE20A32148FA7A000751E57 /* back.png */; };
-		CFE20A35148FA7A000751E57 /* back_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = CFE20A33148FA7A000751E57 /* back_sel.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		CF9B0BEF1486805400C3BA36 /* abc.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = abc.jpg; sourceTree = "<group>"; };
-		CFA39A6C148E4FD8006D6336 /* assign.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = assign.png; sourceTree = "<group>"; };
 		CFB35F97147A87B1002C536D /* testOauth2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testOauth2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB35F9B147A87B1002C536D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CFB35F9D147A87B1002C536D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -372,8 +366,6 @@
 		CFB3610D147AAE45002C536D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CFB3610F147AAE54002C536D /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		CFB36111147AAE6F002C536D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		CFE20A32148FA7A000751E57 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
-		CFE20A33148FA7A000751E57 /* back_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back_sel.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -458,11 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				CFB35FAD147A87B1002C536D /* Default.png */,
-				CFA39A6C148E4FD8006D6336 /* assign.png */,
 				CFB35FAF147A87B1002C536D /* fps_images.png */,
-				CFE20A32148FA7A000751E57 /* back.png */,
-				CFE20A33148FA7A000751E57 /* back_sel.png */,
-				CF9B0BEF1486805400C3BA36 /* abc.jpg */,
 				CFB35FB1147A87B1002C536D /* Icon-72.png */,
 				CFB35FB3147A87B1002C536D /* Icon-Small-50.png */,
 				CFB35FB5147A87B1002C536D /* Icon-Small.png */,
@@ -784,10 +772,6 @@
 				CFB35FBA147A87B1002C536D /* Icon.png in Resources */,
 				CFB35FBC147A87B1002C536D /* Icon@2x.png in Resources */,
 				CFB35FBF147A87B1002C536D /* iTunesArtwork in Resources */,
-				CF9B0BF01486805400C3BA36 /* abc.jpg in Resources */,
-				CFA39A6D148E4FD8006D6336 /* assign.png in Resources */,
-				CFE20A34148FA7A000751E57 /* back.png in Resources */,
-				CFE20A35148FA7A000751E57 /* back_sel.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
