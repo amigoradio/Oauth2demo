@@ -127,6 +127,12 @@
 		CFB3610E147AAE45002C536D /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB3610D147AAE45002C536D /* MobileCoreServices.framework */; };
 		CFB36110147AAE54002C536D /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB3610F147AAE54002C536D /* libz.1.2.5.dylib */; };
 		CFB36112147AAE6F002C536D /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB36111147AAE6F002C536D /* SystemConfiguration.framework */; };
+		CFF44B011504A05F00E2F350 /* oldMan.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF44B001504A05F00E2F350 /* oldMan.png */; };
+		CFF44B051504A06A00E2F350 /* close.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF44B031504A06A00E2F350 /* close.png */; };
+		CFF44B061504A06A00E2F350 /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CFF44B041504A06A00E2F350 /* close@2x.png */; };
+		CFF44B0D1504A08700E2F350 /* LoadingLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF44B081504A08700E2F350 /* LoadingLayer.m */; };
+		CFF44B0E1504A08700E2F350 /* MainLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF44B0A1504A08700E2F350 /* MainLayer.m */; };
+		CFF44B0F1504A08700E2F350 /* MyDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = CFF44B0C1504A08700E2F350 /* MyDialog.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -366,6 +372,15 @@
 		CFB3610D147AAE45002C536D /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		CFB3610F147AAE54002C536D /* libz.1.2.5.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.2.5.dylib; path = usr/lib/libz.1.2.5.dylib; sourceTree = SDKROOT; };
 		CFB36111147AAE6F002C536D /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		CFF44B001504A05F00E2F350 /* oldMan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = oldMan.png; sourceTree = "<group>"; };
+		CFF44B031504A06A00E2F350 /* close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = close.png; sourceTree = "<group>"; };
+		CFF44B041504A06A00E2F350 /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
+		CFF44B071504A08700E2F350 /* LoadingLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingLayer.h; sourceTree = "<group>"; };
+		CFF44B081504A08700E2F350 /* LoadingLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingLayer.m; sourceTree = "<group>"; };
+		CFF44B091504A08700E2F350 /* MainLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainLayer.h; sourceTree = "<group>"; };
+		CFF44B0A1504A08700E2F350 /* MainLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainLayer.m; sourceTree = "<group>"; };
+		CFF44B0B1504A08700E2F350 /* MyDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyDialog.h; sourceTree = "<group>"; };
+		CFF44B0C1504A08700E2F350 /* MyDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyDialog.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -434,6 +449,12 @@
 				CFB360F8147A87B2002C536D /* AppDelegate.m */,
 				CFB360FA147A87B2002C536D /* RootViewController.h */,
 				CFB360FB147A87B2002C536D /* RootViewController.m */,
+				CFF44B071504A08700E2F350 /* LoadingLayer.h */,
+				CFF44B081504A08700E2F350 /* LoadingLayer.m */,
+				CFF44B091504A08700E2F350 /* MainLayer.h */,
+				CFF44B0A1504A08700E2F350 /* MainLayer.m */,
+				CFF44B0B1504A08700E2F350 /* MyDialog.h */,
+				CFF44B0C1504A08700E2F350 /* MyDialog.m */,
 				CFB36100147A87B2002C536D /* GameConfig.h */,
 				CFB35FAC147A87B1002C536D /* Resources */,
 				CFB35FC0147A87B1002C536D /* cocos2d */,
@@ -449,6 +470,9 @@
 		CFB35FAC147A87B1002C536D /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				CFF44B001504A05F00E2F350 /* oldMan.png */,
+				CFF44B031504A06A00E2F350 /* close.png */,
+				CFF44B041504A06A00E2F350 /* close@2x.png */,
 				CFB35FAD147A87B1002C536D /* Default.png */,
 				CFB35FAF147A87B1002C536D /* fps_images.png */,
 				CFB35FB1147A87B1002C536D /* Icon-72.png */,
@@ -772,6 +796,9 @@
 				CFB35FBA147A87B1002C536D /* Icon.png in Resources */,
 				CFB35FBC147A87B1002C536D /* Icon@2x.png in Resources */,
 				CFB35FBF147A87B1002C536D /* iTunesArtwork in Resources */,
+				CFF44B011504A05F00E2F350 /* oldMan.png in Resources */,
+				CFF44B051504A06A00E2F350 /* close.png in Resources */,
+				CFF44B061504A06A00E2F350 /* close@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -881,6 +908,9 @@
 				CFB360F6147A87B2002C536D /* main.m in Sources */,
 				CFB360F9147A87B2002C536D /* AppDelegate.m in Sources */,
 				CFB360FC147A87B2002C536D /* RootViewController.m in Sources */,
+				CFF44B0D1504A08700E2F350 /* LoadingLayer.m in Sources */,
+				CFF44B0E1504A08700E2F350 /* MainLayer.m in Sources */,
+				CFF44B0F1504A08700E2F350 /* MyDialog.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
