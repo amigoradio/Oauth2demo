@@ -1,12 +1,41 @@
-OAuthHelper为使用OAuth2的sina API的认证，获取用户ID，分享照片的例子代码
-主要参考了LROAuth2Client这个项目，以及人人网，开心网的demo    
+OAuthHelper为cocos2d中进行游戏图片分享的功能
 
-使用方法
-OAuthHelper *auth = [[OAuthHelper alloc] init];
-    [auth getAccessToken];
+版本：
+    2012年3月1日之前的版本，借鉴自LROAuth2Client项目，主要做了sina微博的登录，分享功能
+    2012年3月1日之后的版本，融合了多种sns平台。借鉴了facebook的sdk以及jdg-oauthconsumer，
+并将原有的项目重写了一遍。并在实际的游戏中进行应用。
 
-对NSString和NSDictionary的扩展是从LROAuth2Client项目抄来的
+功能：
+    支持sina微博，人人网，qq（微博，qZone）三大sns平台
+    提供demo事例来展示登录，分享照片的功能
+    支持accessToken的过期处理，过期后要求用户登录
 
-这个项目需要ASIHTTPRequest和TouchJSON
+未来：
+    增加twitter的照片分享（调用twitter提供的上传api）
+    增加facebook的照片分享（使用facebook的sdk）
+    增加发送邮件来分享照片的功能
+    增加截全屏，截指定区域图片的功能
+    增加保存到本地照片库的功能
+    对程序进行优化
+    支持设备旋转
+    增加更多的api（仅限于游戏中会使用到的）
 
-现在只实现了sina weibo的部分功能，未来会在这个基础上做一个更完善的例子，也会加入腾讯，人人网，淘宝等
+使用方法：
+    以sinaHelper为例，可以参考demo中的代码，见MainLayer.m
+    SinaHelper *auth = [[SinaHelper alloc] init];
+    auth.message = @"hello this is a share photo test";       //填写上传照片时的附加信息
+    auth.imageName = @"oldMan.png";                           //指定上传的照片文件名
+    [auth userAuth];                                          //进行登录认证
+    [auth sharePhoto];                                        //进行照片分享，前提是accessToken存在
+
+依赖库：
+    jdg-oauthconsumer       用来支持twitter的oauth1
+    ASIHTTPRequest          用来处理各种get和post操作
+    TouchJSON               用来处理返回数据的json转换
+    FBConnect               facebook的sdk
+
+依赖库配置：
+    jdg-oauthconsumer       暂时未使用
+    ASIHTTPRequest          用来处理各种get和post操作
+    TouchJSON               cocos2d自带，不需要额外配置
+    FBConnect               不需要额外配置
