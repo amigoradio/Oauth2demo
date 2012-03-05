@@ -34,8 +34,4 @@ OAuthHelper为cocos2d中进行游戏图片分享的功能
     TouchJSON               用来处理返回数据的json转换
     FBConnect               facebook的sdk
 
-依赖库配置：
-    jdg-oauthconsumer       暂时未使用
-    ASIHTTPRequest          用来处理各种get和post操作
-    TouchJSON               cocos2d自带，不需要额外配置
-    FBConnect               不需要额外配置
+
