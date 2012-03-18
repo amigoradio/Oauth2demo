@@ -155,10 +155,11 @@
     NSLog(@"response=%@",response);
     NSData *jsonData = [response dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *dict = [[CJSONDeserializer deserializer] deserializeAsDictionary:jsonData error:nil];
-    NSLog(@"1userInfo=%@",dict);
+    NSLog(@"sharePhoto success=%@",dict);
 }
 
 - (void) requestError:(ASIHTTPRequest *)request {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeLoading" object:nil];
     NSError *error = [request error];
     NSLog(@"sharePhoto error=%@",error);
 }
