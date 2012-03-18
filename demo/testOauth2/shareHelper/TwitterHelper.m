@@ -11,10 +11,10 @@
 @implementation TwitterHelper
 
 @synthesize imageName,message;
-//hasExpired
+
 - (id)init
 {
-    //NSLog(@"TWITTER INIT");//ACCESS_TOKEN don't expire unless a user manually expires
+    //ACCESS_TOKEN don't expire unless a user manually expires
     NSUserDefaults *userdata = [NSUserDefaults standardUserDefaults];
     ACCESS_TOKEN = [userdata stringForKey:@"twAccessToken"];
     ACCESS_SECRET = [userdata stringForKey:@"twAccessSecrt"];
@@ -22,7 +22,7 @@
     return [super init];
 }
 
-- (void) sendTwitter
+- (void) shareText
 {
     OAToken *oaToken = [[[OAToken alloc] initWithKey:ACCESS_TOKEN
                                          secret:ACCESS_SECRET] autorelease];
@@ -41,7 +41,7 @@
     [requestParam release];
 }
 
-- (void) sendImageTwitter
+- (void) sharePhoto
 {
     if (imageName) {
         [[NSNotificationCenter defaultCenter] postNotificationName:@"displayLoading" object:nil];
@@ -68,36 +68,34 @@
 - (void)ticket:(OAServiceTicket *)ticket didFinishWithTweet:(NSData *)data
 {
     [[NSNotificationCenter defaultCenter] postNotificationName:@"closeLoading" object:nil];
-    //NSLog(@"share photo success");
-    //NSLog(@"%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
 }
 
 - (void)ticket:(OAServiceTicket *)ticket didFailWithTweetError:(NSError *)error
 {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeLoading" object:nil];
     NSLog(@"twitter share photo failed %@",error);
 }
 
-- (void) startTwitter{
+- (void) startShare{
     Reachability *reach = [Reachability reachabilityForInternetConnection];    
     NetworkStatus netStatus = [reach currentReachabilityStatus];    
     if (netStatus == NotReachable) {
-        //NSLog(@"No internet connection!");
-        UIAlertView* connectalert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"s18", nil)
-                                                               message:NSLocalizedString(@"s19", nil)
+        UIAlertView* connectalert = [[UIAlertView alloc] initWithTitle:@"网络检查"
+                                                               message:@"请检查您的网络，稍候进行分享"
                                                               delegate:self cancelButtonTitle:nil
                                                      otherButtonTitles:@"OK", nil];
         [connectalert show];
         [connectalert release];
     }else{
         if (ACCESS_TOKEN && ACCESS_SECRET) {
-            [self sendImageTwitter];
+            [self sharePhoto];
         }else{
-            [self authTwitter];
+            [self userAuth];
         }
     }
 }
 
-- (void) authTwitter{
+- (void) userAuth{
     consumer = [[OAConsumer alloc] initWithKey:CONSUMER_KEY secret:CONSUMER_SECRET];
     OADataFetcher* fetcher = [[[OADataFetcher alloc] init] autorelease];
     NSURL* url = [NSURL URLWithString:@"https://api.twitter.com/oauth/request_token"];
@@ -133,20 +131,18 @@
 }
 
 - (void) dismissWithUrl:(NSURL*)url{
-    NSLog(@"twitter dismissWithUrl=%@",url);
-//    NSString *urlstr = [url absoluteString];
-//    NSString *errorUri = [dialog getStringFromUrl:urlstr needle:@"error_uri="];
-//    NSString *error = [dialog getStringFromUrl:urlstr needle:@"error="];
-//    NSString *errorDescription = [dialog getStringFromUrl:urlstr needle:@"error_description="];
-//    NSString *errorcode = [dialog getStringFromUrl:urlstr needle:@"error_code="];
-//    NSLog(@"twitter errorUri=%@\nerror=%@\nerrorDescription=%@\nerrorcode=%@",errorUri,error,errorDescription,errorcode);
+    NSLog(@"dismissWithUrl=%@",url);
+    NSString *urlstr = [url absoluteString];
+    NSString *errorUri = [dialog getStringFromUrl:urlstr needle:@"error_uri="];
+    NSString *error = [dialog getStringFromUrl:urlstr needle:@"error="];
+    NSString *errorDescription = [dialog getStringFromUrl:urlstr needle:@"error_description="];
+    NSString *errorcode = [dialog getStringFromUrl:urlstr needle:@"error_code="];
+    NSLog(@"errorUri=%@\nerror=%@\nerrorDescription=%@\nerrorcode=%@",errorUri,error,errorDescription,errorcode);
 }
 
 - (BOOL)backFromBrowser:(NSURL*)responseURL
 {
     NSURL* resulturl = [NSURL URLWithString:CALLBACK_URI];
-    //NSLog(@"[url host]=%@",[responseURL host]);
-    //NSLog(@"[resulturl host]=%@",[resulturl host]);
     if ([[responseURL host] isEqualToString:[resulturl host]]) {
         accessToken = [accessToken initWithHTTPResponseBody:[responseURL query]];
         OADataFetcher* fetcher = [[[OADataFetcher alloc] init] autorelease];
@@ -179,7 +175,7 @@
         [userdata setObject:ACCESS_TOKEN forKey:@"twAccessToken"];
         [userdata setObject:ACCESS_SECRET forKey:@"twAccessSecrt"];
         if ([userdata synchronize]) {
-            [self sendImageTwitter];
+            [self sharePhoto];
         }
     } else {
         NSLog(@"twitter access_token.failed");

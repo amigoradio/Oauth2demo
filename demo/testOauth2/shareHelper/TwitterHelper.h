@@ -27,10 +27,10 @@
     NSString *message;
 }
 
-- (void) startTwitter;
-- (void) authTwitter;
-- (void) sendTwitter;
-- (void) sendImageTwitter;
+- (void) startShare;
+- (void) userAuth;
+- (void) shareText;
+- (void) sharePhoto;
 
 @property (nonatomic,copy) NSString *imageName;
 @property (nonatomic,copy) NSString *message;
