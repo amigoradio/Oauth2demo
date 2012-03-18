@@ -134,6 +134,7 @@
 }
 
 - (void) requestError:(ASIHTTPRequest *)request {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeLoading" object:nil];
     NSError *error = [request error];
     NSLog(@"sharePhoto error=%@",error);
 }
