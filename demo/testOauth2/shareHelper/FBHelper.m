@@ -13,27 +13,26 @@
 
 @synthesize facebook,imageName,message;
 
-- (void) startFacebook{
+- (void) startShare{
     Reachability *reach = [Reachability reachabilityForInternetConnection];    
     NetworkStatus netStatus = [reach currentReachabilityStatus];    
     if (netStatus == NotReachable) {
-        //NSLog(@"No internet connection!");
-        UIAlertView* connectalert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"s18", nil)
-                                                               message:NSLocalizedString(@"s19", nil)
+        UIAlertView* connectalert = [[UIAlertView alloc] initWithTitle:@"网络检查"
+                                                               message:@"请检查您的网络，稍候进行分享"
                                                               delegate:self cancelButtonTitle:nil
                                                      otherButtonTitles:@"OK", nil];
         [connectalert show];
         [connectalert release];
     }else{
         if (facebook.accessToken) {
-            [self sendImage];
+            [self sharePhoto];
         }else{
-            [self authFacebook];
+            [self userAuth];
         }
     }
 }
 
-- (void) authFacebook{
+- (void) userAuth{
     facebook = [[Facebook alloc] initWithAppId:fbAppKey andDelegate:self];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     if ([defaults objectForKey:@"FBAccessTokenKey"] 
@@ -46,7 +45,7 @@
                                   @"publish_stream", nil] retain];
         [facebook authorize:permissions];
     }else{
-        [self sendImage];
+        [self sharePhoto];
     }
 
 }
@@ -56,8 +55,7 @@
     [defaults setObject:[facebook accessToken] forKey:@"FBAccessTokenKey"];
     [defaults setObject:[facebook expirationDate] forKey:@"FBExpirationDateKey"];
     [defaults synchronize];
-    //NSLog(@"fbDidLogin=%@",[facebook accessToken]);
-    [self sendImage];
+    [self sharePhoto];
 }
 
 -(void)fbDidNotLogin:(BOOL)cancelled {
@@ -68,7 +66,7 @@
     }
 }
 
-- (void)sendImage{
+- (void)sharePhoto{
     [[NSNotificationCenter defaultCenter] postNotificationName:@"displayLoading" object:nil];
     UIImage *image = [UIImage imageWithContentsOfFile:imageName];
     NSData *imageData= UIImagePNGRepresentation(image);
@@ -78,11 +76,12 @@
 }
 
 - (void)request:(FBRequest *)request didLoad:(id)result {
-    //NSLog(@"Photo posted in the \"APP NAME\" album on your account!=%@",result);
+    NSLog(@"Photo posted in the \"APP NAME\" album on your account!=%@",result);
     [[NSNotificationCenter defaultCenter] postNotificationName:@"closeLoading" object:nil];
 }
 
 - (void)request:(FBRequest *)request didFailWithError:(NSError *)error {
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"closeLoading" object:nil];
     NSLog(@"fb photo upload Error %@",error);
 }
 

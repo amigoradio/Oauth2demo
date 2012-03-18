@@ -22,9 +22,9 @@
 @property (nonatomic,copy) NSString *message;
 @property (nonatomic, retain) Facebook *facebook;
 
-- (void) sendImage;
-- (void) startFacebook;
-- (void) authFacebook;
+- (void) sharePhoto;
+- (void) startShare;
+- (void) userAuth;
 
 
 
