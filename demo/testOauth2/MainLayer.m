@@ -10,6 +10,9 @@
 #import "SinaHelper.h"
 #import "RenRenHelper.h"
 #import "QQHelper.h"
+#import "MailHelper.h"
+#import "TwitterHelper.h"
+#import "FBHelper.h"
 
 @implementation MainLayer
 
@@ -46,12 +49,14 @@
         qq.color = ccBLUE;
         CCMenuItemFont *twitter = [CCMenuItemFont itemFromString:@"twitterLogin" 
                                                            block:^(id sender){
-                                                               NSLog(@"nothing");
+                                                               TwitterHelper *twitter = [[TwitterHelper alloc] init];
+                                                               [twitter userAuth];
                                                            }];
         twitter.color = ccMAGENTA;
         CCMenuItemFont *facebook = [CCMenuItemFont itemFromString:@"faceboookLogin" 
                                                             block:^(id sender){
-                                                                NSLog(@"nothing");
+                                                                FBHelper *fb = [[FBHelper alloc] init];
+                                                                [fb userAuth];
                                                             }];
         facebook.color = ccYELLOW;
         
@@ -86,12 +91,18 @@
         qqSharePhoto.color = ccBLUE;
         CCMenuItemFont *twitterSharePhoto = [CCMenuItemFont itemFromString:@"SharePhoto" 
                                                                      block:^(id sender){
-                                                                         NSLog(@"nothing");
+                                                                         TwitterHelper *tw = [[TwitterHelper alloc] init];
+                                                                         tw.message = @"hello this is a share photo test";
+                                                                         tw.imageName = @"oldMan.png";
+                                                                         [tw sharePhoto];
                                                                      }];
         twitterSharePhoto.color = ccMAGENTA;
         CCMenuItemFont *facebookSharePhoto = [CCMenuItemFont itemFromString:@"SharePhoto" 
                                                                       block:^(id sender){
-                                                                          NSLog(@"nothing");
+                                                                          FBHelper *fb = [[FBHelper alloc] init];
+                                                                          fb.message = @"hello this is a share photo test";
+                                                                          fb.imageName = @"oldMan.png";
+                                                                          [fb sharePhoto];
                                                                       }];
         facebookSharePhoto.color = ccYELLOW;
         
@@ -102,7 +113,10 @@
         
         CCMenuItemFont *mailSharePhoto = [CCMenuItemFont itemFromString:@"sendMail" 
                                                                   block:^(id sender){
-                                                                      NSLog(@"nothing");
+                                                                      MailHelper *mail = [[MailHelper alloc] init];
+                                                                      [mail sendmail:@"share Photo" 
+                                                                                body:@"hello this is a share photo test" 
+                                                                           imageName:@"oldMan.png"];
                                                                   }];
         CCMenu *menu3 = [CCMenu menuWithItems:mailSharePhoto, nil];
         menu3.position = ccp(200,80);

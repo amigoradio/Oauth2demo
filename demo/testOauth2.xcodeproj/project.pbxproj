@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF2BB2F21515E1700045CBB6 /* MailHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = CF2BB2F11515E1700045CBB6 /* MailHelper.m */; };
+		CF2BB2F51515EE4C0045CBB6 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF2BB2F41515EE4C0045CBB6 /* MessageUI.framework */; };
 		CFB35F9C147A87B1002C536D /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB35F9B147A87B1002C536D /* QuartzCore.framework */; };
 		CFB35F9E147A87B1002C536D /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB35F9D147A87B1002C536D /* OpenGLES.framework */; };
 		CFB35FA0147A87B1002C536D /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CFB35F9F147A87B1002C536D /* OpenAL.framework */; };
@@ -175,6 +177,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CF2BB2F01515E16F0045CBB6 /* MailHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MailHelper.h; sourceTree = "<group>"; };
+		CF2BB2F11515E1700045CBB6 /* MailHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MailHelper.m; sourceTree = "<group>"; };
+		CF2BB2F41515EE4C0045CBB6 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CFB35F97147A87B1002C536D /* testOauth2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testOauth2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CFB35F9B147A87B1002C536D /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CFB35F9D147A87B1002C536D /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -509,6 +514,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF2BB2F51515EE4C0045CBB6 /* MessageUI.framework in Frameworks */,
 				CFB36112147AAE6F002C536D /* SystemConfiguration.framework in Frameworks */,
 				CFB36110147AAE54002C536D /* libz.1.2.5.dylib in Frameworks */,
 				CFB3610E147AAE45002C536D /* MobileCoreServices.framework in Frameworks */,
@@ -530,6 +536,7 @@
 		CFB35F8C147A87B0002C536D = {
 			isa = PBXGroup;
 			children = (
+				CF2BB2F41515EE4C0045CBB6 /* MessageUI.framework */,
 				CFB35FAB147A87B1002C536D /* testOauth2 */,
 				CFB35F9A147A87B1002C536D /* Frameworks */,
 				CFB35F98147A87B1002C536D /* Products */,
@@ -875,6 +882,8 @@
 				CFF44B201504A95D00E2F350 /* SinaHelper.m */,
 				CFF44B211504A95D00E2F350 /* TwitterHelper.h */,
 				CFF44B221504A95D00E2F350 /* TwitterHelper.m */,
+				CF2BB2F01515E16F0045CBB6 /* MailHelper.h */,
+				CF2BB2F11515E1700045CBB6 /* MailHelper.m */,
 			);
 			path = shareHelper;
 			sourceTree = "<group>";
@@ -1201,6 +1210,7 @@
 				CFF44B951504A97600E2F350 /* ASIInputStream.m in Sources */,
 				CFF44B961504A97600E2F350 /* ASINetworkQueue.m in Sources */,
 				CFF44B971504A97600E2F350 /* Reachability.m in Sources */,
+				CF2BB2F21515E1700045CBB6 /* MailHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1222,7 +1232,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1237,7 +1247,7 @@
 				GCC_VERSION = com.apple.compilers.llvmgcc42;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
 			};
@@ -1253,6 +1263,7 @@
 				GCC_PREFIX_HEADER = testOauth2/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = testOauth2/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
@@ -1268,6 +1279,7 @@
 				GCC_PREFIX_HEADER = testOauth2/Prefix.pch;
 				"GCC_THUMB_SUPPORT[arch=armv6]" = "";
 				INFOPLIST_FILE = testOauth2/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
 				OTHER_LDFLAGS = "-lz";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				VALIDATE_PRODUCT = YES;
